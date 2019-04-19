@@ -32,7 +32,8 @@ $(document).ready(function() {
     }
 
     $(document).on("click", ".coolStuff", function (){
-
+        
+        $("#giffysGoHere").empty();
         var something = $(this).attr("data-name");
         console.log(this);
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
