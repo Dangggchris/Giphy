@@ -36,6 +36,7 @@ $(document).ready(function() {
         $("#giffysGoHere").empty();
         var something = $(this).attr("data-name");
         console.log(this);
+
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         something + "&api_key=ctfzkznFP6ktZDX7R8ijHgtioznNP1CB&limit=10";
         
@@ -54,14 +55,40 @@ $(document).ready(function() {
                 var rating = $("<p>").text("Rating: " + results[i].rating);
                 var giffy = $("<img>");
                 giffy.attr("src", results[i].images.fixed_height.url);
+                giffy.attr("data-animate", results[i].images.fixed_height.url);
+                giffy.attr("data-still", results[i].images.fixed_height_still.url)
+                giffy.attr("data-state", "animate");
+                giffy.addClass("gif");
 
                 newGif.append(rating);
                 newGif.append(giffy);
 
                 $("#giffysGoHere").append(newGif);
-                console.log(results[i].images.fixed_height.url);
+                console.log(results);
             }
         })
+
+        
+
+    })
+
+    $(document).on("click", ".gif", function (){
+        
+        var state = $(this).attr("data-state");
+
+        if (state === "still") {
+            animate = $(this).attr("data-animate");
+            state = $(this).attr("src", animate);
+            state= $(this).attr("data-state", "animate");
+            console.log(state);
+          }
+
+        if (state === "animate") {
+            animate = $(this).attr("data-still");
+            state = $(this).attr("src", animate);
+            state= $(this).attr("data-state", "still");
+            console.log(state);
+        }
 
     })
 
