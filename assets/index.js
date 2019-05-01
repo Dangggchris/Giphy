@@ -1,19 +1,21 @@
 
-
 $(document).ready(function() {
 
-    var lat = 0;
-    var long = 0;
-    
-        navigator.geolocation.getCurrentPosition(function(position) {
-            lat = position.coords.latitude;
-            long = position.coords.longitude;
-            userlat = position.coords.latitude;
-            userlong = position.coords.longitude;
-    
-            console.log("Latitude is: " + lat);
-            console.log("Longitude is: " + long);
-        });
+
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(function(position){
+                var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
+                console.log(positionInfo);
+            });
+        } else{
+            alert("Sorry, your browser does not support HTML5 geolocation.");
+        }
+
+
+
+
+
+
 
     var buttons = ["marvel","Game of Thrones","DC","DotA 2","League of Legends","Super Smash Bros","Dungeons and Dragons","One Piece","Anime","Final Fantasy"];
 
