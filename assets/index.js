@@ -1,5 +1,15 @@
 $(document).ready(function() {
 
+    navigator.geolocation.getCurrentPosition(function(position) {
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+        userlat = position.coords.latitude;
+        userlong = position.coords.longitude;
+    });
+
+    console.log("Latitude is: " + lat);
+    console.log("Longitude is: " + long);
+
     var buttons = ["marvel","Game of Thrones","DC","DotA 2","League of Legends","Super Smash Bros","Dungeons and Dragons","One Piece","Anime","Final Fantasy"];
 
     function preButts () {
