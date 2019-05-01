@@ -1,5 +1,3 @@
-$(document).ready(function() {
-
 var lat = 0;
 var long = 0;
 
@@ -8,10 +6,15 @@ var long = 0;
         long = position.coords.longitude;
         userlat = position.coords.latitude;
         userlong = position.coords.longitude;
+
+        console.log("Latitude is: " + lat);
+        console.log("Longitude is: " + long);
     });
 
-    console.log("Latitude is: " + lat);
-    console.log("Longitude is: " + long);
+$(document).ready(function() {
+
+
+
 
     var buttons = ["marvel","Game of Thrones","DC","DotA 2","League of Legends","Super Smash Bros","Dungeons and Dragons","One Piece","Anime","Final Fantasy"];
 
