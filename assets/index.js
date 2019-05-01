@@ -1,17 +1,14 @@
 
 $(document).ready(function() {
 
-
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(function(position){
-                var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
-                console.log(positionInfo);
-            });
-        } else{
-            alert("Sorry, your browser does not support HTML5 geolocation.");
-        }
-
-
+   
+        
+          navigator.geolocation.getCurrentPosition((pos) => {
+            console.log(pos)
+          }, (err) => {
+             console.error(err)
+          });
+       
 
 
 
