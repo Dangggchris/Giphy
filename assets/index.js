@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+var lat = 0;
+var long = 0;
+
     navigator.geolocation.getCurrentPosition(function(position) {
         lat = position.coords.latitude;
         long = position.coords.longitude;
